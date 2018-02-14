@@ -6,7 +6,7 @@
 //  Copyright © 2018 Zhu Shengqi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import Foundation;
 
 //! Project version number for SwiftLayout.
 FOUNDATION_EXPORT double SwiftLayoutVersionNumber;
