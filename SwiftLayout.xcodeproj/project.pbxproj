@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D433D27A2035F0AC00F5DDBB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D4C294CF203490950040B988 /* SwiftLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C294D2203490950040B988 /* SwiftLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftLayout.h; sourceTree = "<group>"; };
 		D4C294D3203490950040B988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		D4C294C5203490950040B988 = {
 			isa = PBXGroup;
 			children = (
+				D433D27A2035F0AC00F5DDBB /* README.md */,
 				D4C294D1203490950040B988 /* SwiftLayout */,
 				D4C294DC203490950040B988 /* SwiftLayoutTests */,
 				D4C294D0203490950040B988 /* Products */,
