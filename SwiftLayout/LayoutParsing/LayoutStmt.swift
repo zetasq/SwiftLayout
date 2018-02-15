@@ -18,8 +18,9 @@ public struct LayoutStmt {
   
   public let constraint: NSLayoutConstraint
   
-  public func priority(_ priority: LayoutPriority) {
+  public func priority(_ priority: LayoutPriority) -> LayoutStmt {
     constraint.priority = priority
+    return self
   }
   
 }
