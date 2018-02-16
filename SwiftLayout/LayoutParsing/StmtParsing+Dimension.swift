@@ -40,15 +40,14 @@ public func <=(_ lhs: CGFloat, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
 
 @discardableResult
 public func <=(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
-  guard (lhs.injectionContext != nil) != (rhs.injectionContext != nil) else {
-    fatalError("There should be one and only one context object used in layout statement")
+  guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+    fatalError("No context object found in layout statement")
   }
   
   guard lhs.multiplier.sign == rhs.multiplier.sign else {
     fatalError("The multipliers of the two dimension expressions don't have the same sign")
   }
   
-  let context = (lhs.injectionContext ?? rhs.injectionContext)!
   let multiplier = rhs.multiplier / lhs.multiplier
   let constant = (rhs.offset - lhs.offset) / lhs.multiplier
   
@@ -84,11 +83,9 @@ public func ==(_ lhs: CGFloat, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
 
 @discardableResult
 public func ==(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
-  guard (lhs.injectionContext != nil) != (rhs.injectionContext != nil) else {
-    fatalError("There should be one and only one context object used in layout statement")
+  guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+    fatalError("No context object found in layout statement")
   }
-  
-  let context = (lhs.injectionContext ?? rhs.injectionContext)!
   
   let parsedConstraint = lhs.anchor.constraint(equalTo: rhs.anchor, multiplier: rhs.multiplier / lhs.multiplier, constant: (rhs.offset - lhs.offset) / lhs.multiplier)
   context.injectConstraint(parsedConstraint)

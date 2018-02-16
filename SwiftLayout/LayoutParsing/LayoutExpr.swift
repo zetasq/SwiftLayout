@@ -72,8 +72,8 @@ public func -(_ minuend: CGFloat, _ expr: DimensionLayoutExpr) -> DimensionLayou
 
 // MARK: - Offset
 public func -(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> DimensionLayoutExpr {
-  guard (lhs.injectionContext != nil) != (rhs.injectionContext != nil) else {
-    fatalError("There should be one and only one context object used in layout statement")
+  guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+    fatalError("No context object found in layout statement")
   }
   
   guard abs(lhs.multiplier) == 1 && abs(rhs.multiplier) == 1 else {
@@ -87,8 +87,6 @@ public func -(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> DimensionLayout
   guard lhs.offset == rhs.offset else {
     fatalError("The offsets of the two XAxis expressions should be equal")
   }
-  
-  let context = (lhs.injectionContext ?? rhs.injectionContext)!
   
   let dimensionAnchor: NSLayoutDimension
   switch lhs.multiplier.sign {
@@ -102,8 +100,8 @@ public func -(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> DimensionLayout
 }
 
 public func -(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> DimensionLayoutExpr {
-  guard (lhs.injectionContext != nil) != (rhs.injectionContext != nil) else {
-    fatalError("There should be one and only one context object used in layout statement")
+  guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+    fatalError("No context object found in layout statement")
   }
   
   guard abs(lhs.multiplier) == 1 && abs(rhs.multiplier) == 1 else {
@@ -117,8 +115,6 @@ public func -(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> DimensionLayout
   guard lhs.offset == rhs.offset else {
     fatalError("The offsets of the two XAxis expressions should be equal")
   }
-  
-  let context = (lhs.injectionContext ?? rhs.injectionContext)!
   
   let dimensionAnchor: NSLayoutDimension
   switch lhs.multiplier.sign {
