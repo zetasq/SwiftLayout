@@ -10,10 +10,7 @@
 		D4C294D9203490950040B988 /* SwiftLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C294CF203490950040B988 /* SwiftLayout.framework */; };
 		D4C294DE203490950040B988 /* SwiftLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294DD203490950040B988 /* SwiftLayoutTests.swift */; };
 		D4C294E0203490950040B988 /* SwiftLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C294D2203490950040B988 /* SwiftLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4C294EB2034944F0040B988 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294EA2034944F0040B988 /* View.swift */; };
-		D4C294ED203495AF0040B988 /* LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294EC203495AF0040B988 /* LayoutGuide.swift */; };
-		D4C294EF203495E40040B988 /* LayoutItemBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294EE203495E40040B988 /* LayoutItemBox.swift */; };
-		D4C294F12034963F0040B988 /* LayoutItemBox+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294F02034963F0040B988 /* LayoutItemBox+Layout.swift */; };
+		D4C294F12034963F0040B988 /* SLTBox+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294F02034963F0040B988 /* SLTBox+Layout.swift */; };
 		D4C294F42034968D0040B988 /* LayoutItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294F32034968D0040B988 /* LayoutItemProtocol.swift */; };
 		D4C294F6203496D50040B988 /* View+LayoutItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294F5203496D50040B988 /* View+LayoutItemProtocol.swift */; };
 		D4C294F8203496FA0040B988 /* LayoutGuide+LayoutItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294F7203496FA0040B988 /* LayoutGuide+LayoutItemProtocol.swift */; };
@@ -24,11 +21,13 @@
 		D4C29505203497E10040B988 /* LayoutContext+LayoutExpressionInjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C29504203497E10040B988 /* LayoutContext+LayoutExpressionInjectable.swift */; };
 		D4C29507203498140040B988 /* LayoutExpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C29506203498140040B988 /* LayoutExpr.swift */; };
 		D4C29509203498360040B988 /* LayoutStmt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C29508203498360040B988 /* LayoutStmt.swift */; };
-		D4C2950B203499020040B988 /* ViewBox+AnchorExpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2950A203499020040B988 /* ViewBox+AnchorExpr.swift */; };
+		D4C2950B203499020040B988 /* SLTBox+AnchorExpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2950A203499020040B988 /* SLTBox+AnchorExpr.swift */; };
 		D4C2950D2034991A0040B988 /* LayoutContext+AnchorExpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2950C2034991A0040B988 /* LayoutContext+AnchorExpr.swift */; };
 		D4C2950F203499370040B988 /* StmtParsing+Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2950E203499370040B988 /* StmtParsing+Dimension.swift */; };
 		D4C29511203499520040B988 /* StmtParsing+XAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C29510203499520040B988 /* StmtParsing+XAxis.swift */; };
 		D4C295132034996A0040B988 /* StmtParsing+YAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C295122034996A0040B988 /* StmtParsing+YAxis.swift */; };
+		D4C295D1204593FA0040B988 /* SLTBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C295D0204593FA0040B988 /* SLTBox.swift */; };
+		D4C295D3204594CE0040B988 /* PlatformNeutralTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C295D2204594CE0040B988 /* PlatformNeutralTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,10 +48,7 @@
 		D4C294D8203490950040B988 /* SwiftLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C294DD203490950040B988 /* SwiftLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLayoutTests.swift; sourceTree = "<group>"; };
 		D4C294DF203490950040B988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4C294EA2034944F0040B988 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		D4C294EC203495AF0040B988 /* LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutGuide.swift; sourceTree = "<group>"; };
-		D4C294EE203495E40040B988 /* LayoutItemBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutItemBox.swift; sourceTree = "<group>"; };
-		D4C294F02034963F0040B988 /* LayoutItemBox+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutItemBox+Layout.swift"; sourceTree = "<group>"; };
+		D4C294F02034963F0040B988 /* SLTBox+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SLTBox+Layout.swift"; sourceTree = "<group>"; };
 		D4C294F32034968D0040B988 /* LayoutItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutItemProtocol.swift; sourceTree = "<group>"; };
 		D4C294F5203496D50040B988 /* View+LayoutItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+LayoutItemProtocol.swift"; sourceTree = "<group>"; };
 		D4C294F7203496FA0040B988 /* LayoutGuide+LayoutItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutGuide+LayoutItemProtocol.swift"; sourceTree = "<group>"; };
@@ -63,11 +59,13 @@
 		D4C29504203497E10040B988 /* LayoutContext+LayoutExpressionInjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutContext+LayoutExpressionInjectable.swift"; sourceTree = "<group>"; };
 		D4C29506203498140040B988 /* LayoutExpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExpr.swift; sourceTree = "<group>"; };
 		D4C29508203498360040B988 /* LayoutStmt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutStmt.swift; sourceTree = "<group>"; };
-		D4C2950A203499020040B988 /* ViewBox+AnchorExpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewBox+AnchorExpr.swift"; sourceTree = "<group>"; };
+		D4C2950A203499020040B988 /* SLTBox+AnchorExpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SLTBox+AnchorExpr.swift"; sourceTree = "<group>"; };
 		D4C2950C2034991A0040B988 /* LayoutContext+AnchorExpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutContext+AnchorExpr.swift"; sourceTree = "<group>"; };
 		D4C2950E203499370040B988 /* StmtParsing+Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StmtParsing+Dimension.swift"; sourceTree = "<group>"; };
 		D4C29510203499520040B988 /* StmtParsing+XAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StmtParsing+XAxis.swift"; sourceTree = "<group>"; };
 		D4C295122034996A0040B988 /* StmtParsing+YAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StmtParsing+YAxis.swift"; sourceTree = "<group>"; };
+		D4C295D0204593FA0040B988 /* SLTBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLTBox.swift; sourceTree = "<group>"; };
+		D4C295D2204594CE0040B988 /* PlatformNeutralTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformNeutralTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +132,9 @@
 		D4C294E92034943F0040B988 /* Boxing */ = {
 			isa = PBXGroup;
 			children = (
-				D4C294EA2034944F0040B988 /* View.swift */,
-				D4C294EC203495AF0040B988 /* LayoutGuide.swift */,
-				D4C294EE203495E40040B988 /* LayoutItemBox.swift */,
-				D4C294F02034963F0040B988 /* LayoutItemBox+Layout.swift */,
+				D4C295D2204594CE0040B988 /* PlatformNeutralTypes.swift */,
+				D4C295D0204593FA0040B988 /* SLTBox.swift */,
+				D4C294F02034963F0040B988 /* SLTBox+Layout.swift */,
 			);
 			path = Boxing;
 			sourceTree = "<group>";
@@ -176,7 +173,7 @@
 			children = (
 				D4C29506203498140040B988 /* LayoutExpr.swift */,
 				D4C29508203498360040B988 /* LayoutStmt.swift */,
-				D4C2950A203499020040B988 /* ViewBox+AnchorExpr.swift */,
+				D4C2950A203499020040B988 /* SLTBox+AnchorExpr.swift */,
 				D4C2950C2034991A0040B988 /* LayoutContext+AnchorExpr.swift */,
 				D4C2950E203499370040B988 /* StmtParsing+Dimension.swift */,
 				D4C29510203499520040B988 /* StmtParsing+XAxis.swift */,
@@ -302,19 +299,18 @@
 				D4C2950F203499370040B988 /* StmtParsing+Dimension.swift in Sources */,
 				D4C294F8203496FA0040B988 /* LayoutGuide+LayoutItemProtocol.swift in Sources */,
 				D4C295132034996A0040B988 /* StmtParsing+YAxis.swift in Sources */,
-				D4C294F12034963F0040B988 /* LayoutItemBox+Layout.swift in Sources */,
+				D4C294F12034963F0040B988 /* SLTBox+Layout.swift in Sources */,
 				D4C294FF2034978F0040B988 /* View+LayoutAnchorAccessible.swift in Sources */,
-				D4C294ED203495AF0040B988 /* LayoutGuide.swift in Sources */,
-				D4C294EF203495E40040B988 /* LayoutItemBox.swift in Sources */,
 				D4C29509203498360040B988 /* LayoutStmt.swift in Sources */,
-				D4C294EB2034944F0040B988 /* View.swift in Sources */,
 				D4C29501203497A20040B988 /* LayoutGuide+LayoutAnchorAccessible.swift in Sources */,
 				D4C29507203498140040B988 /* LayoutExpr.swift in Sources */,
-				D4C2950B203499020040B988 /* ViewBox+AnchorExpr.swift in Sources */,
+				D4C2950B203499020040B988 /* SLTBox+AnchorExpr.swift in Sources */,
 				D4C29511203499520040B988 /* StmtParsing+XAxis.swift in Sources */,
 				D4C294FD203497680040B988 /* LayoutAnchorAccessible.swift in Sources */,
+				D4C295D3204594CE0040B988 /* PlatformNeutralTypes.swift in Sources */,
 				D4C29505203497E10040B988 /* LayoutContext+LayoutExpressionInjectable.swift in Sources */,
 				D4C294F6203496D50040B988 /* View+LayoutItemProtocol.swift in Sources */,
+				D4C295D1204593FA0040B988 /* SLTBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
