@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension SLTBox where T: LayoutAnchorAccessible {
+extension SLTBox where BoxedType: LayoutAnchorAccessible {
   
   public var top: YAxisLayoutExpr {
     return .init(anchor: self.boxedObj.topAnchor)

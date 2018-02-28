@@ -8,25 +8,17 @@
 
 import Foundation
 
-public struct SLTBox<T> {
+public struct SLTBox<BoxedType> {
   
-  internal let boxedObj: T
+  internal let boxedObj: BoxedType
   
-  internal init(_ boxedObj: T) {
+  internal init(_ boxedObj: BoxedType) {
     self.boxedObj = boxedObj
   }
   
 }
 
-public protocol SLTBoxable: class {
-  
-  associatedtype BoxedType
-  
-  var slt: SLTBox<BoxedType> { get }
-  
-}
-
-extension View: SLTBoxable {
+extension View {
   
   public var slt: SLTBox<View> {
     return .init(self)
@@ -34,7 +26,7 @@ extension View: SLTBoxable {
   
 }
 
-extension LayoutGuide: SLTBoxable {
+extension LayoutGuide {
   
   public var slt: SLTBox<LayoutGuide> {
     return .init(self)

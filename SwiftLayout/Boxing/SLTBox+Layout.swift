@@ -12,9 +12,9 @@
   import UIKit
 #endif
 
-extension SLTBox where T: LayoutItemProtocol & LayoutAnchorAccessible {
+extension SLTBox where BoxedType: LayoutItemProtocol & LayoutAnchorAccessible {
   
-  public func layout(_ block: (LayoutContext<T>) -> Void) {
+  public func layout(_ block: (LayoutContext<BoxedType>) -> Void) {
     let currentConstraints = self.boxedObj.slt_managedConstraints
     NSLayoutConstraint.deactivate(currentConstraints)
     self.boxedObj.slt_clearAllConstraints()
