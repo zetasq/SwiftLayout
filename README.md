@@ -22,7 +22,7 @@ Just as you write equations and inequations in mathmatics, in SwiftLayout you do
 let viewA = UIView()
 let viewB = UIView()
 
-let savedConstraint: NSLayoutConstraint
+var savedConstraint: NSLayoutConstraint!
 
 viewA.addSubview(viewB)
 viewB.slt.layout {
