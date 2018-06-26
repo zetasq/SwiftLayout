@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D44D20A820E2821B00975971 /* ConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D20A720E2821B00975971 /* ConstraintGroup.swift */; };
 		D4C294D9203490950040B988 /* SwiftLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C294CF203490950040B988 /* SwiftLayout.framework */; };
 		D4C294DE203490950040B988 /* SwiftLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C294DD203490950040B988 /* SwiftLayoutTests.swift */; };
 		D4C294E0203490950040B988 /* SwiftLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C294D2203490950040B988 /* SwiftLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		D433D27A2035F0AC00F5DDBB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D44D20A720E2821B00975971 /* ConstraintGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintGroup.swift; sourceTree = "<group>"; };
 		D4C294CF203490950040B988 /* SwiftLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C294D2203490950040B988 /* SwiftLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftLayout.h; sourceTree = "<group>"; };
 		D4C294D3203490950040B988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D44D20A620E281D500975971 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D44D20A720E2821B00975971 /* ConstraintGroup.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D4C294C5203490950040B988 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 				D4C294F92034970E0040B988 /* LayoutAnchorAccessible */,
 				D4C294FA203497180040B988 /* LayoutContext */,
 				D4C294FB203497240040B988 /* LayoutParsing */,
+				D44D20A620E281D500975971 /* Utils */,
 			);
 			path = SwiftLayout;
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 				D4C294F42034968D0040B988 /* LayoutItemProtocol.swift in Sources */,
 				D4C2950D2034991A0040B988 /* LayoutContext+AnchorExpr.swift in Sources */,
 				D4C29503203497CA0040B988 /* LayoutContext.swift in Sources */,
+				D44D20A820E2821B00975971 /* ConstraintGroup.swift in Sources */,
 				D4C2950F203499370040B988 /* StmtParsing+Dimension.swift in Sources */,
 				D4C294F8203496FA0040B988 /* LayoutGuide+LayoutItemProtocol.swift in Sources */,
 				D4C295132034996A0040B988 /* StmtParsing+YAxis.swift in Sources */,
