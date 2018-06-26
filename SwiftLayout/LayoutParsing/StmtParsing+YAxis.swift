@@ -15,7 +15,7 @@ public func <=(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
   }
   
   guard lhs.multiplier == 1 && rhs.multiplier == 1 else {
-    fatalError("Multipliers must be 1 when writing X Axis layout statement")
+    fatalError("Multipliers must be 1 when writing Y Axis layout statement")
   }
   
   let parsedConstraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.offset - lhs.offset)
@@ -31,7 +31,7 @@ public func ==(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
   }
   
   guard lhs.multiplier == 1 && rhs.multiplier == 1 else {
-    fatalError("Multipliers must be 1 when writing X Axis layout statement")
+    fatalError("Multipliers must be 1 when writing Y Axis layout statement")
   }
   
   let parsedConstraint = lhs.anchor.constraint(equalTo: rhs.anchor, constant: rhs.offset - lhs.offset)
@@ -42,5 +42,16 @@ public func ==(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
 
 @discardableResult
 public func >=(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
-  return rhs <= lhs
+    guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+        fatalError("No context object found in layout statement")
+    }
+    
+    guard lhs.multiplier == 1 && rhs.multiplier == 1 else {
+        fatalError("Multipliers must be 1 when writing Y Axis layout statement")
+    }
+    
+    let parsedConstraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs.anchor, constant: rhs.offset - lhs.offset)
+    context.injectConstraint(parsedConstraint)
+    
+    return LayoutStmt(constraint: parsedConstraint)
 }

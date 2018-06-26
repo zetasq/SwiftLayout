@@ -121,5 +121,26 @@ public func >=(_ lhs: CGFloat, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
 
 @discardableResult
 public func >=(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
-  return rhs <= lhs
+    guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+        fatalError("No context object found in layout statement")
+    }
+    
+    guard lhs.multiplier.sign == rhs.multiplier.sign else {
+        fatalError("The multipliers of the two dimension expressions don't have the same sign")
+    }
+    
+    let multiplier = rhs.multiplier / lhs.multiplier
+    let constant = (rhs.offset - lhs.offset) / lhs.multiplier
+    
+    let parsedConstraint: NSLayoutConstraint
+    switch lhs.multiplier.sign {
+    case .minus:
+        parsedConstraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs.anchor, multiplier: multiplier, constant: constant)
+    case .plus:
+        parsedConstraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs.anchor, multiplier: multiplier, constant: constant)
+    }
+    
+    context.injectConstraint(parsedConstraint)
+    
+    return LayoutStmt(constraint: parsedConstraint)
 }
