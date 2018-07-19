@@ -17,7 +17,7 @@ public final class LayoutContext<T: LayoutItemProtocol & LayoutAnchorAccessible>
   // MARK: - Properties
   internal let layoutItem: T
   
-  internal var generatedConstraints: [NSLayoutConstraint] = []
+  internal var injectedStatements: [LayoutStmt] = []
   
   // MARK: - Init & Deinit
   internal init(item: T) {

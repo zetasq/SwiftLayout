@@ -14,14 +14,14 @@
 
 public protocol LayoutConstraintInjectable: class {
   
-  func injectConstraint(_ constraint: NSLayoutConstraint)
+  func injectStatement(_ statement: LayoutStmt)
   
 }
 
 extension LayoutContext: LayoutConstraintInjectable {
   
-  public func injectConstraint(_ constraint: NSLayoutConstraint) {
-    self.generatedConstraints.append(constraint)
+  public func injectStatement(_ statement: LayoutStmt) {
+    self.injectedStatements.append(statement)
   }
   
 }

@@ -14,13 +14,25 @@
   public typealias LayoutPriority = UILayoutPriority
 #endif
 
-public struct LayoutStmt {
+public final class LayoutStmt {
   
   public let constraint: NSLayoutConstraint
+  
+  internal var activateWhenInjected = true
+  
+  internal init(constraint: NSLayoutConstraint) {
+    self.constraint = constraint
+  }
   
   @discardableResult
   public func priority(_ priority: LayoutPriority) -> LayoutStmt {
     constraint.priority = priority
+    return self
+  }
+  
+  @discardableResult
+  public func activated(_ activated: Bool) -> LayoutStmt {
+    activateWhenInjected = activated
     return self
   }
   

@@ -7,9 +7,9 @@
 //
 
 #if os(macOS)
-  import AppKit
+import AppKit
 #elseif os(iOS)
-  import UIKit
+import UIKit
 #endif
 
 @discardableResult
@@ -28,9 +28,10 @@ public func <=(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
     parsedConstraint = lhs.anchor.constraint(lessThanOrEqualToConstant: constant)
   }
   
-  context.injectConstraint(parsedConstraint)
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
   
-  return LayoutStmt(constraint: parsedConstraint)
+  return statement
 }
 
 @discardableResult
@@ -59,9 +60,10 @@ public func <=(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> Layout
     parsedConstraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs.anchor, multiplier: multiplier, constant: constant)
   }
   
-  context.injectConstraint(parsedConstraint)
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
   
-  return LayoutStmt(constraint: parsedConstraint)
+  return statement
 }
 
 @discardableResult
@@ -71,9 +73,11 @@ public func ==(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
   }
   
   let parsedConstraint = lhs.anchor.constraint(equalToConstant: (rhs - lhs.offset) / lhs.multiplier)
-  context.injectConstraint(parsedConstraint)
   
-  return LayoutStmt(constraint: parsedConstraint)
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
+  
+  return statement
 }
 
 @discardableResult
@@ -88,9 +92,11 @@ public func ==(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> Layout
   }
   
   let parsedConstraint = lhs.anchor.constraint(equalTo: rhs.anchor, multiplier: rhs.multiplier / lhs.multiplier, constant: (rhs.offset - lhs.offset) / lhs.multiplier)
-  context.injectConstraint(parsedConstraint)
   
-  return LayoutStmt(constraint: parsedConstraint)
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
+  
+  return statement
 }
 
 @discardableResult
@@ -109,9 +115,10 @@ public func >=(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
     parsedConstraint = lhs.anchor.constraint(greaterThanOrEqualToConstant: constant)
   }
   
-  context.injectConstraint(parsedConstraint)
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
   
-  return LayoutStmt(constraint: parsedConstraint)
+  return statement
 }
 
 @discardableResult
@@ -121,26 +128,27 @@ public func >=(_ lhs: CGFloat, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
 
 @discardableResult
 public func >=(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
-    guard let context = lhs.injectionContext ?? rhs.injectionContext else {
-        fatalError("No context object found in layout statement")
-    }
-    
-    guard lhs.multiplier.sign == rhs.multiplier.sign else {
-        fatalError("The multipliers of the two dimension expressions don't have the same sign")
-    }
-    
-    let multiplier = rhs.multiplier / lhs.multiplier
-    let constant = (rhs.offset - lhs.offset) / lhs.multiplier
-    
-    let parsedConstraint: NSLayoutConstraint
-    switch lhs.multiplier.sign {
-    case .minus:
-        parsedConstraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs.anchor, multiplier: multiplier, constant: constant)
-    case .plus:
-        parsedConstraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs.anchor, multiplier: multiplier, constant: constant)
-    }
-    
-    context.injectConstraint(parsedConstraint)
-    
-    return LayoutStmt(constraint: parsedConstraint)
+  guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+    fatalError("No context object found in layout statement")
+  }
+  
+  guard lhs.multiplier.sign == rhs.multiplier.sign else {
+    fatalError("The multipliers of the two dimension expressions don't have the same sign")
+  }
+  
+  let multiplier = rhs.multiplier / lhs.multiplier
+  let constant = (rhs.offset - lhs.offset) / lhs.multiplier
+  
+  let parsedConstraint: NSLayoutConstraint
+  switch lhs.multiplier.sign {
+  case .minus:
+    parsedConstraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs.anchor, multiplier: multiplier, constant: constant)
+  case .plus:
+    parsedConstraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs.anchor, multiplier: multiplier, constant: constant)
+  }
+  
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
+  
+  return statement
 }

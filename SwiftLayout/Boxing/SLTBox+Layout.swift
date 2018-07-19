@@ -15,16 +15,21 @@
 extension SLTBox where BoxedType: LayoutItemProtocol & LayoutAnchorAccessible {
   
   public func layout(_ block: (LayoutContext<BoxedType>) -> Void) {
-    let currentConstraints = self.boxedObj.slt_managedConstraints
-    NSLayoutConstraint.deactivate(currentConstraints)
+    let managedConstraints = self.boxedObj.slt_managedConstraints
+    NSLayoutConstraint.deactivate(managedConstraints)
     self.boxedObj.slt_clearAllConstraints()
     
     let context = LayoutContext(item: self.boxedObj)
+    
     block(context)
     
-    let newConstraints = context.generatedConstraints
-    NSLayoutConstraint.activate(newConstraints)
-    self.boxedObj.slt_addConstraints(newConstraints)
+    let statements = context.injectedStatements
+    
+    let constraintsToActivate = statements.compactMap { $0.activateWhenInjected ? $0.constraint : nil }
+    NSLayoutConstraint.activate(constraintsToActivate)
+    
+    let newManagedConstraints = statements.map { $0.constraint }
+    self.boxedObj.slt_addConstraints(newManagedConstraints)
   }
   
 }

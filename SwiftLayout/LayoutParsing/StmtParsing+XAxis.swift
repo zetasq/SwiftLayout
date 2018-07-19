@@ -19,9 +19,11 @@ public func <=(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
   }
   
   let parsedConstraint = lhs.anchor.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.offset - lhs.offset)
-  context.injectConstraint(parsedConstraint)
   
-  return LayoutStmt(constraint: parsedConstraint)
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
+  
+  return statement
 }
 
 @discardableResult
@@ -35,23 +37,27 @@ public func ==(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
   }
   
   let parsedConstraint = lhs.anchor.constraint(equalTo: rhs.anchor, constant: rhs.offset - lhs.offset)
-  context.injectConstraint(parsedConstraint)
   
-  return LayoutStmt(constraint: parsedConstraint)
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
+  
+  return statement
 }
 
 @discardableResult
 public func >=(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
-    guard let context = lhs.injectionContext ?? rhs.injectionContext else {
-        fatalError("No context object found in layout statement")
-    }
-    
-    guard lhs.multiplier == 1 && rhs.multiplier == 1 else {
-        fatalError("Multipliers must be 1 when writing X Axis layout statement")
-    }
-    
-    let parsedConstraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs.anchor, constant: rhs.offset - lhs.offset)
-    context.injectConstraint(parsedConstraint)
-    
-    return LayoutStmt(constraint: parsedConstraint)
+  guard let context = lhs.injectionContext ?? rhs.injectionContext else {
+    fatalError("No context object found in layout statement")
+  }
+  
+  guard lhs.multiplier == 1 && rhs.multiplier == 1 else {
+    fatalError("Multipliers must be 1 when writing X Axis layout statement")
+  }
+  
+  let parsedConstraint = lhs.anchor.constraint(greaterThanOrEqualTo: rhs.anchor, constant: rhs.offset - lhs.offset)
+  
+  let statement = LayoutStmt(constraint: parsedConstraint)
+  context.injectStatement(statement)
+  
+  return statement
 }
