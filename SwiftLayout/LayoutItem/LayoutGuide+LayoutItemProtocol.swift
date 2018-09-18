@@ -10,8 +10,10 @@ import Foundation
 
 extension LayoutGuide: LayoutItemProtocol {
   
+  @inlinable
   public func _slt_prepareForAutoLayout() {}
   
+  @inlinable
   public var _slt_superview: View? {
     return self.owningView
   }

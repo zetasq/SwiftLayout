@@ -14,14 +14,19 @@
 
 public struct LayoutExpr<T> {
   
+  @usableFromInline
   internal let anchor: T
   
+  @usableFromInline
   internal let multiplier: CGFloat
   
+  @usableFromInline
   internal let offset: CGFloat
   
+  @usableFromInline
   internal let injectionContext: LayoutConstraintInjectable?
   
+  @usableFromInline
   internal init(anchor: T, multiplier: CGFloat = 1, offset: CGFloat = 0, injectionContext: LayoutConstraintInjectable? = nil) {
     self.anchor = anchor
     self.multiplier = multiplier
@@ -40,37 +45,45 @@ public typealias DimensionLayoutExpr = LayoutExpr<NSLayoutDimension>
 
 
 // MARK: - Multiplication
+@inlinable
 public func *(_ expr: DimensionLayoutExpr, _ multiplier: CGFloat) -> DimensionLayoutExpr {
   return DimensionLayoutExpr(anchor: expr.anchor, multiplier: expr.multiplier * multiplier, offset: expr.offset, injectionContext: expr.injectionContext)
 }
 
+@inlinable
 public func *(_ multiplier: CGFloat, _ expr: DimensionLayoutExpr) -> DimensionLayoutExpr {
   return expr * multiplier
 }
 
+@inlinable
 public prefix func -(_ expr: DimensionLayoutExpr) -> DimensionLayoutExpr {
   return expr * -1
 }
 
 // MARK: - Addition
+@inlinable
 public func +<T>(_ expr: LayoutExpr<T>, _ addend: CGFloat) -> LayoutExpr<T> {
   return LayoutExpr(anchor: expr.anchor, multiplier: expr.multiplier, offset: expr.offset + addend, injectionContext: expr.injectionContext)
 }
 
+@inlinable
 public func +<T>(_ addend: CGFloat, _ expr: LayoutExpr<T>) -> LayoutExpr<T> {
   return expr + addend
 }
 
 // MARK: - Subtraction
+@inlinable
 public func -<T>(_ expr: LayoutExpr<T>, _ subtrahend: CGFloat) -> LayoutExpr<T> {
   return LayoutExpr(anchor: expr.anchor, multiplier: expr.multiplier, offset: expr.offset - subtrahend, injectionContext: expr.injectionContext)
 }
 
+@inlinable
 public func -(_ minuend: CGFloat, _ expr: DimensionLayoutExpr) -> DimensionLayoutExpr {
   return -(expr - minuend)
 }
 
 // MARK: - Offset
+@inlinable
 public func -(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> DimensionLayoutExpr {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
     fatalError("No context object found in layout statement")
@@ -99,6 +112,7 @@ public func -(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> DimensionLayout
   return DimensionLayoutExpr(anchor: dimensionAnchor, multiplier: 1, offset: 0, injectionContext: context)
 }
 
+@inlinable
 public func -(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> DimensionLayoutExpr {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
     fatalError("No context object found in layout statement")

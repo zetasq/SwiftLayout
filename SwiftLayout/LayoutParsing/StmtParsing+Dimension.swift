@@ -12,6 +12,7 @@ import AppKit
 import UIKit
 #endif
 
+@inlinable
 @discardableResult
 public func <=(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
   guard let context = lhs.injectionContext else {
@@ -34,11 +35,13 @@ public func <=(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
   return statement
 }
 
+@inlinable
 @discardableResult
 public func <=(_ lhs: CGFloat, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
   return rhs >= lhs
 }
 
+@inlinable
 @discardableResult
 public func <=(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
@@ -66,6 +69,7 @@ public func <=(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> Layout
   return statement
 }
 
+@inlinable
 @discardableResult
 public func ==(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
   guard let context = lhs.injectionContext else {
@@ -80,11 +84,13 @@ public func ==(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
   return statement
 }
 
+@inlinable
 @discardableResult
 public func ==(_ lhs: CGFloat, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
   return rhs == lhs
 }
 
+@inlinable
 @discardableResult
 public func ==(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
@@ -99,6 +105,7 @@ public func ==(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> Layout
   return statement
 }
 
+@inlinable
 @discardableResult
 public func >=(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
   guard let context = lhs.injectionContext else {
@@ -121,11 +128,13 @@ public func >=(_ lhs: DimensionLayoutExpr, _ rhs: CGFloat) -> LayoutStmt {
   return statement
 }
 
+@inlinable
 @discardableResult
 public func >=(_ lhs: CGFloat, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
   return rhs <= lhs
 }
 
+@inlinable
 @discardableResult
 public func >=(_ lhs: DimensionLayoutExpr, _ rhs: DimensionLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {

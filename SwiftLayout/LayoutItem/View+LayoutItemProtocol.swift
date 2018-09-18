@@ -10,10 +10,12 @@ import Foundation
 
 extension View: LayoutItemProtocol {
   
+  @inlinable
   public func _slt_prepareForAutoLayout() {
     self.translatesAutoresizingMaskIntoConstraints = false
   }
   
+  @inlinable
   public var _slt_superview: View? {
     return self.superview
   }

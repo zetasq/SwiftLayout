@@ -20,6 +20,7 @@ public protocol LayoutConstraintInjectable: class {
 
 extension LayoutContext: LayoutConstraintInjectable {
   
+  @inlinable
   public func injectStatement(_ statement: LayoutStmt) {
     self.injectedStatements.append(statement)
   }

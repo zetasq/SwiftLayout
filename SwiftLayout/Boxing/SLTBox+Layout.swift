@@ -14,6 +14,7 @@
 
 extension SLTBox where BoxedType: LayoutItemProtocol & LayoutAnchorAccessible {
   
+  @inlinable
   public func layout(_ block: (LayoutContext<BoxedType>) -> Void) {
     let managedConstraints = self.boxedObj.slt_managedConstraints
     NSLayoutConstraint.deactivate(managedConstraints)

@@ -10,8 +10,10 @@ import Foundation
 
 public struct SLTBox<BoxedType> {
   
+  @usableFromInline
   internal let boxedObj: BoxedType
   
+  @usableFromInline
   internal init(_ boxedObj: BoxedType) {
     self.boxedObj = boxedObj
   }
@@ -20,6 +22,7 @@ public struct SLTBox<BoxedType> {
 
 extension View {
   
+  @inlinable
   public var slt: SLTBox<View> {
     return .init(self)
   }
@@ -28,6 +31,7 @@ extension View {
 
 extension LayoutGuide {
   
+  @inlinable
   public var slt: SLTBox<LayoutGuide> {
     return .init(self)
   }

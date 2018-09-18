@@ -18,19 +18,23 @@ public final class LayoutStmt {
   
   public let constraint: NSLayoutConstraint
   
+  @usableFromInline
   internal var activateWhenInjected = true
   
+  @usableFromInline
   internal init(constraint: NSLayoutConstraint) {
     self.constraint = constraint
   }
   
   @discardableResult
+  @inlinable
   public func priority(_ priority: LayoutPriority) -> LayoutStmt {
     constraint.priority = priority
     return self
   }
   
   @discardableResult
+  @inlinable
   public func activated(_ activated: Bool) -> LayoutStmt {
     activateWhenInjected = activated
     return self

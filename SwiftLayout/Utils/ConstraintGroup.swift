@@ -13,27 +13,29 @@ import UIKit
 #endif
 
 public final class ConstraintGroup {
-    
-    private var constraints: [NSLayoutConstraint] = []
-    
-    internal func addConstraint(_ constraint: NSLayoutConstraint) {
-        constraints.append(constraint)
-    }
-    
-    public func activate() {
-        NSLayoutConstraint.activate(constraints)
-    }
-    
-    public func deactivate() {
-        NSLayoutConstraint.deactivate(constraints)
-    }
-    
+  
+  private var constraints: [NSLayoutConstraint] = []
+  
+  @usableFromInline
+  internal func addConstraint(_ constraint: NSLayoutConstraint) {
+    constraints.append(constraint)
+  }
+  
+  public func activate() {
+    NSLayoutConstraint.activate(constraints)
+  }
+  
+  public func deactivate() {
+    NSLayoutConstraint.deactivate(constraints)
+  }
+  
 }
 
 extension LayoutStmt {
-    
-    public func add(to group: ConstraintGroup) {
-        group.addConstraint(self.constraint)
-    }
-    
+  
+  @inlinable
+  public func add(to group: ConstraintGroup) {
+    group.addConstraint(self.constraint)
+  }
+  
 }

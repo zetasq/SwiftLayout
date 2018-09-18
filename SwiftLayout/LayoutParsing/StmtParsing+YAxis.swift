@@ -8,6 +8,7 @@
 
 import Foundation
 
+@inlinable
 @discardableResult
 public func <=(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
@@ -26,6 +27,7 @@ public func <=(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
   return statement
 }
 
+@inlinable
 @discardableResult
 public func ==(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
@@ -44,6 +46,7 @@ public func ==(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
   return statement
 }
 
+@inlinable
 @discardableResult
 public func >=(_ lhs: YAxisLayoutExpr, _ rhs: YAxisLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {

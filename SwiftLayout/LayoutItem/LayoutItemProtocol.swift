@@ -37,10 +37,12 @@ extension LayoutItemProtocol {
     return set
   }
   
+  @usableFromInline
   internal var slt_managedConstraints: [NSLayoutConstraint] {
     return self.slt_constraintsSet.allObjects as! [NSLayoutConstraint]
   }
   
+  @usableFromInline
   internal func slt_addConstraints(_ constraints: [NSLayoutConstraint]) {
     let set = self.slt_constraintsSet
     for constraint in constraints {
@@ -48,6 +50,7 @@ extension LayoutItemProtocol {
     }
   }
   
+  @usableFromInline
   internal func slt_removeConstraints(_ constraints: [NSLayoutConstraint]) {
     let set = self.slt_constraintsSet
     for constraint in constraints {
@@ -55,6 +58,7 @@ extension LayoutItemProtocol {
     }
   }
   
+  @usableFromInline
   internal func slt_clearAllConstraints() {
     self.slt_constraintsSet.removeAllObjects()
   }

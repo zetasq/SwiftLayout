@@ -8,6 +8,7 @@
 
 import Foundation
 
+@inlinable
 @discardableResult
 public func <=(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
@@ -26,6 +27,7 @@ public func <=(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
   return statement
 }
 
+@inlinable
 @discardableResult
 public func ==(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
@@ -44,6 +46,7 @@ public func ==(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
   return statement
 }
 
+@inlinable
 @discardableResult
 public func >=(_ lhs: XAxisLayoutExpr, _ rhs: XAxisLayoutExpr) -> LayoutStmt {
   guard let context = lhs.injectionContext ?? rhs.injectionContext else {
